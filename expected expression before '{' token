@@ -1,0 +1,57 @@
+I am getting: "error: expected expression before '{' token" for the line I've commented before. If the struct is already defined why would it need a "{" before token. Thanks for any help you can provide.
+
+struct sdram_timing {
+    u32 wrdtr;
+    u32 clktr;
+};
+
+int calibration(void);
+unsigned char read_i2c_cal(void);
+static unsigned int eepcal[15];
+
+main() {
+    DQS_autocalibration();
+}
+
+int calibration(void)
+{
+    struct sdram_timing scan_list[30];
+
+    read_i2c_cal();
+    if(eepcal[0] == 0){
+
+       scan_list = {{eepcal[1], eepcal[2]}, {-1, -1}}; // <-- PROBLEM LINE
+
+        }
+        else {
+            //foo
+        }
+
+    return 0;
+}
+
+unsigned char read_i2c_cal(void) {
+    eepcal[0] = 0;
+    eepcal[1] = 02;
+    eepcal[2] = 03;
+}
+
+
+
+The error is because you can't assign an array that way, that only works to initialize it.
+
+int arr[4] = {0}; // this works
+int arr2[4];
+
+arr2 = {0};// this doesn't and will cause an error
+
+arr2[0] = 0; // that's OK
+memset(arr2, 0, 4*sizeof(int)); // that is too
+
+So applying this to your specific example:
+
+struct sdram_timing scan_list[30];
+scan_list[0].wrdtr = 0;
+scan_list[0].clktr = 0;
+
+or you could use memset the same way, but instead of sizeof(int) you need size of your structure. That doesn't always work... but given your structure, it will.
