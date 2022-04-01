@@ -1,0 +1,108 @@
+#第九章 字符串、字符和字节
+##9.1 字符串基础
+字符串以一个位模式为全0的NUL字节结尾，因此字符串所包含的字符内部不能出现NUL
+NUL字节是终止符，本身并不是字符串的一部分，因此字符串的长度不包括NUL
+##9.2 字符串长度
+strlen返回的是无符号数
+strlen(x)>=strlen(y) √
+strlen(x)-strlen(y)>=0 永远成立，因为无符号数不可能为负数
+##9.3不受限制的字符串函数
+1.strcpy
+  char *strcpy(char *dst,char const *src);
+  如果src与dst在内存中出现重叠，则结果未定义
+  目标参数的以前内容将被覆盖和丢失，即使新的字符串比原先内存更短
+  但因为字符串结尾为NUL，剩余的字符也会不可访问
+  如果字符串比目标数组长，则将覆盖后面的内存空间的值
+2.strcat
+  char *strcat(char *dst,char const *src);
+  strcat找到dst的末尾，并将src的一个副本添加到这个位置，如果src和dst内存重叠，未定义。
+3.返回值
+  strcat和strcpy返回指向目标数组的指针
+4.字符串比较
+  int strcmp(char const*s1,char const *s2);
+  如果s1小于s2，返回小于0的值；如果s1>s2，返回大于0的值；相等则返回0；
+  具体返回的值不确定。
+  strcmp的参数必须以NUL结尾，否则会比较后面的字节。
+##9.4 长度受限的字符串函数
+char *strncpy(char *dst,char const *src,size_t len);
+char *strncat(char *dst,char const *src,size_t len);
+int strncmp(char const*s1,char const *s2,size_t len);
+
+strncpy总是正好向dst写入len个字符。如果strlen(src)<len，则剩余的会被NUL补充
+如果strlen(src)>len，它的结果不会以NUL结尾！
+
+strncat从src中最多复制len个字符，总是在结果字符串后添加一个NUL，且不会将剩余的用NUL填充
+
+strncmp最多比较len个字节，一旦有不相等的字符就返回
+##9.5字符串查找基础
+1.查找一个字符
+char *strchr(char const *str,int ch);
+char *strrchr(char const *str,int ch);
+
+strchr查找ch第一次出现的位置，返回指向该位置的指针，不存在返回NULL
+strrchr查找最后一次出现的位置，返回最后一次位置的指针，不存在返回NULL
+
+2.查找任意几个字符
+char *strpbrk(char const *str,char const *group);
+返回一个指向str中第一个匹配group中任何一个字符的字符位置，否则返回NULL
+
+3.查找一个子串
+char *strstr(char const *s1,chan const *s2);
+查找s2第一次出现的位置并返回指向该位置的指针，若不存在，返回NULL；若s2空，返回s1；
+标准库中没有strrstr，需要自己实现：
+char *strpbrk(char const *str,char const *group){
+  register char *last;
+  register char *current;
+  last=NULL;
+  if (*s2!='\0'){
+    current=strstr(s1,s2);
+  }
+  while (current!=NULL){
+    last=current;
+    current=strstr(last+1,s2);
+  }
+  return last;
+}
+
+##9.6高级字符串查找
+1.查找字符串前缀
+strspn和strcspn用于在字符串的起始位置对字符计数
+size_t strspn(char const*str,char const *group);
+size_t strcspn(char const*str,char const *group);
+
+group指向一个或多个字符。strspn返回str起始部分匹配group中任意字符的字符数。
+（该函数返回 str 中第一个不在字符串 group 中出现的字符下标。）
+
+strcspn正好相反，返回 str 开头连续都不含字符串 group 中字符的字符数。
+
+2.查找标记
+char *strtok(char *str,char const *sep);
+
+sep参数是字符串，定义了用作分隔符的字符集合。第一参数指定一个字符串，包含0个或多个
+由sep中分隔符分隔的标记。strtok找到str的下一个标记，并将其用NUL结尾，返回一个指向这个标记的指针
+
+strtok会修改目标字符串。
+如果strtok函数的第一个参数不是NULL，函数将找到字符串的第一个标记。strtok同时会保存它的位置。
+如果strtok第一个参数为NULL，就从同一个字符串中从这个被保存的位置开始查找下一个标记。
+若不存在更多的标记，返回NULL。
+
+strtok不能同时解析两个字符串
+
+##9.7 错误信息
+char *strerror(int error_number);
+
+##9.9 内存操作
+字符串内部不应该出现'\0'字符，但是非字符串数据包含0值的情况并不罕见，不能用字符串函数处理它们。
+
+内存操作函数：与字符串函数类似，但可以处理任意字节序列
+void *memcpy(void *dst,void const *src,size_t length);
+void *memmove(void *dst,void const *src,size_t length);
+void *memcmp(void const *a,void const *b,size_t length);
+void *memchr(void const *a,int ch,size_t length);
+void *memset(void *a,int ch,size_t length);
+
+memcpy从src的起始位置复制length个字节到dst的起始位置，length等于数量*数据类型长度
+memmove与memcpy类似，但它的源操作数和目标操作数可以重叠
+memcmp逐字节比较，如果比较不是单字节的数据，就会给出不可预料的结果
+memchr从a的起始位置查找ch第一次出现的位置，返回该位置指针
+memset把从a开始的length个字节设置为ch
