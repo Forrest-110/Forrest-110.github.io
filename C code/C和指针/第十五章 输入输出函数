@@ -1,0 +1,28 @@
+#第十五章 输入输出函数
+##15.1 错误报告
+void *perror(char const *message);
+如果message不是NULL，并指向一个非空字符串，perror函数就打印出这个字符串，后面跟一个分号和空格，然后打印解释errno当前错误代码的信息
+##15.2 终止执行
+void exit(int status);
+status参数返回给操作系统，用于提示程序是否正常完成
+##15.4 ANSI I/O概念
+流：
+对C程序而言，所有的I/O操作只是简单地从程序移进或移出字节，这种字节流称为流。
+绝大多数流是完全缓冲的，读取和写入是从一块被称为缓冲区的内存区域来回复制数据。
+用于输出流的缓冲区只有被写满时才会刷新到设备或文件中。
+1.文本流
+标准把文本行定义为0个或多个字符，后面跟一个表示结束的换行符。
+2.二进制流
+二进制流的字节将完全根据编写它们的形式写入到文件或设备中，并完全根据它们从文件或设备读取的形式读入到程序中
+##15.8 字符I/O
+fgetc和fputc是真正的函数
+getc和putc是宏
+
+ungetc把一个先前读入的字符返回到流中
+##15.11 二进制I/O
+fread函数用于读取二进制数据
+fwrite函数用于写入二进制数据
+size_t fread(void *buffer,size_t size,size_t count,FILE *stream);
+size_t fwrite(void *buffer,size_t size,size_t count,FILE *stream);
+
+buffer是一个指向用于保存数据的内存位置的指针，size是缓冲区中每个元素的字节数，count是读取或写入的元素数，stream是读取或写入的流

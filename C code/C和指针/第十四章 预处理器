@@ -1,0 +1,60 @@
+#第十四章 预处理器
+##14.2 #define
+在程序中#define定义符号和宏时，需要涉及几个步骤：
+1.调用宏时，首先对参数进行检查，是否包含任何由#define定义的符号，如果是，它们首先被替换
+2.替换文本随后被插入到程序中原来文本的位置。对于宏，参数名被值所替代。
+3.最后对结果文本扫描，若包含define定义的符号，重复上述过程。
+
+因此，尽管宏参数和define定义可以包含其他define定义的符号，但是宏不可以出现递归
+搜索define定义的符号时，不检查字符串常量的内容。
+如果想把宏参数插入到字符串常量中，有两个技巧。
+1.把字符串分成多段，邻近字符串会自动连接。（只有宏参数是字符串常量时才可以）
+2.使用预处理器将宏参数转化为字符串。
+#argument 这种结构被预处理器翻译成"argument"
+
+##把左右两边的符号连接成一个符号
+
+宏与函数：
+1.使用宏比使用函数在规模和速度上更胜一筹
+2.宏的参数适用于任何类型，宏与类型无关
+3.有些宏的任务无法用函数实现
+#define MALLOC(n,type) ((type *)malloc((n)*sizeof(type)))
+然而，使用宏会大幅增加代码长度
+
+带副作用的宏参数多次使用时需要警惕结果
+
+命令行定义：
+允许在命令行中定义符号，用于启动编译过程。
+-Dname
+-Dname=stuff
+第一种形式定义了name，它的值为1
+第二种形式把符号的值定义为stuff
+
+##14.3 条件编译
+#if constant-expression
+statements
+#endif
+
+#if constant-expression
+statements
+#elif constant-expression
+other statements
+#else
+other statements
+#endif
+
+#ifdef <=> #if defined()
+#ifndef <=> #if !defined()
+
+##14.4 文件包含
+include指令被预处理器删除，并用包含文件的内容取而代之
+函数库文件包含 #include <filename>
+本地文件包含 #include "filename"
+本地文件包含时，在源文件当前目录查找，若未找到，则在标准库位置查找
+因此，可以在所有的Include中使用双引号
+
+##14.5 其他指令
+error 允许生成错误信息
+#error text of error message
+line 通知预处理器number是下一行输入的行号，如果给出了"string"，就把它当作文件名
+#line number "string"
