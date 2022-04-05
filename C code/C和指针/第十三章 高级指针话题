@@ -1,0 +1,51 @@
+#第十三章 高级指针话题
+##13.3 函数指针
+函数名被使用时总是由编译器把它转化为函数指针
+int f(int);
+int (*pf)(int)=f;
+则
+int ans;
+ans=f(25);
+ans=(*pf)(25);
+ans=pf(25);
+完全等价
+
+回调函数：
+在一个单链表中查找一个值的函数，一般只适用于一个类型的链表。
+更为通用的方法是使查找函数与类型无关，这样就能用于任何类型的链表。
+使用函数指针，先编写一个函数比较两个值，再把一个指向这个函数的指针作为参数传递给查找函数。
+同时，需要向函数传递指向值的指针而不是值本身。这个指针是void*。
+使用上述技巧的函数被称为回调函数。
+
+转移表：一个函数指针数组
+例：计算器
+switch(oper){
+    case ADD:result=add(op1,op2);
+    break;
+    case SUB:result=sub(op1,op2);
+    break;
+    case MUL:result=mul(op1,op2);
+    break;
+    case DIV:result=div(op1,op2);
+    break;
+}
+使用转换表简化：
+创建一个转换表需要两个步骤：
+1.声明并初始化一个函数指针数组。
+double add(double,double);
+double sub(double,double);
+double mul(double,double);
+double div(double,double);
+double (*oper_func[])(double,double)={add,sub,mul,div};
+2.用下面的语句代替整条switch语句
+result=oper_func[oper](op1,op2);
+
+##13.5 字符串常量
+"xyz"+1 指向'y'
+*"xyz" <=>'x'
+"xyz"[2]<=>'z'
+例：将二进制值转换为字符：
+putchar("0123456789ABCDEF"[value%16]);
+
+
+
