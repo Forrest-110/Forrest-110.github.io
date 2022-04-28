@@ -1,0 +1,148 @@
+第十六章 标准函数库
+16.1 整型函数
+<stdlib.h>
+abs绝对值
+labs长整数绝对值
+div返回商和余数的结构
+ldiv长整数除法
+伪随机数函数组合：
+int rand(void)
+void srand(unsigned int)
+字符串转换：把字符串转换为数值
+stoi：基数10
+atol：长整数，基数10
+strtol：长整数，基数可指定
+strtoul：无符号长整数，基数可指定
+
+16.2浮点型函数
+<stdlib.h>
+三角函数
+双曲函数
+对数和指数函数
+浮点表示形式
+幂
+底数，顶数，绝对值，余数
+字符串转换
+
+16.3日期和时间
+<time.h>
+clock_t clock(void);
+返回从程序开始执行起处理器所消耗的时间，若要把输出转换为秒，需要除以CLOCKS_PER_SEC
+time_t time(time_t *timer);
+返回当前的日期和时间，timer=NULL时得到当前日历时间（从1970-01-01 00:00:00到现在的秒数）
+timer=时间数值时，用于设置日历时间，如果 timer不为空，则返回值也存储在变量 timer中。
+char *ctime(time_t const*time_value);
+double difftime(time_t time1,time_t time2);
+ctime返回指向时间字符串的指针
+difftime计算time1和time2的差并转换为秒
+struct tm *gmtime(time_t const*time_value);世界协调时间（格林尼治时间）
+struct tm *localtime(time_t const *time_value);当地时间
+
+struct tm
+{
+   int tm_sec;         /* 秒，范围从 0 到 59      */
+   int tm_min;         /* 分，范围从 0 到 59      */
+   int tm_hour;        /* 小时，范围从 0 到 23     */
+   int tm_mday;        /* 一月中的第几天，范围从 1 到 31    */
+   int tm_mon;         /* 月，范围从 0 到 11(注意)  */
+   int tm_year;        /* 自 1900 年起的年数      */
+   int tm_wday;        /* 一周中的第几天，范围从 0 到 6 */
+   int tm_yday;        /* 一年中的第几天，范围从 0 到 365   */
+   int tm_isdst;       /* 夏令时               */
+};
+
+函数原型: char* asctime(struct tm * ptr)
+函数功能:将结构struct tm * ptr所表示的时间以字符串表示
+函数返回: 返回的时间字符串格式为：星期,月,日,小时:分:秒,年
+参数说明: 结构指针ptr应通过函数localtime()或gmtime()得到
+
+函数原型: size_t strftime( char *strDest, size_t maxsize, const char *format, const struct tm *timeptr);
+函数功能: 根据format指向字符串中格式命令把timeptr中保存的时间信息放在strDest指向的字符串中，最多向 strDest中存放maxsize个字符。
+参数说明: 转化结果存在s中，最多maxsize个字符写到s中
+函数返回: 该函数返回向strDest指向的字符串中放置的字符数（不包括'\0'），如果字符数多于maxsize，函数返回0。
+/*format如下：它们是区分大小写的。
+    %a 星期几的简写
+    %A 星期几的全称
+    %b 月分的简写
+    %B 月份的全称
+    %c 标准的日期的时间串
+    %C 年份的后两位数字
+    %d 十进制表示的每月的第几天
+    %D 月/天/年
+    %e 在两字符域中，十进制表示的每月的第几天
+    %F 年-月-日
+    %g 年份的后两位数字，使用基于周的年
+    %G 年分，使用基于周的年
+    %h 简写的月份名
+    %H 24小时制的小时
+    %I 12小时制的小时
+    %j 十进制表示的每年的第几天
+    %m 十进制表示的月份
+    %M 十时制表示的分钟数
+    %n 新行符
+    %p 本地的AM或PM的等价显示
+    %r 12小时的时间
+    %R 显示小时和分钟：hh:mm
+    %S 十进制的秒数
+    %t 水平制表符
+    %T 显示时分秒：hh:mm:ss
+    %u 每周的第几天，星期一为第一天 （值从0到6，星期一为0）
+    %U 第年的第几周，把星期日做为第一天（值从0到53）
+    %V 每年的第几周，使用基于周的年
+    %w 十进制表示的星期几（值从0到6，星期天为0）
+    %W 每年的第几周，把星期一做为第一天（值从0到53）
+    %x 标准的日期串
+    %X 标准的时间串
+    %y 不带世纪的十进制年份（值从0到99）
+    %Y 带世纪部分的十进制年份
+    %z，%Z 时区名称，如果不能得到时区名称则返回空字符。
+    %% 百分号
+*/  
+函数原型：time_t mktime(struct tm *timeptr)
+函数功能：把 timeptr 所指向的结构转换为一个依据本地时区的 time_t 值
+函数返回：该函数返回一个 time_t 值，该值对应于以参数传递的日历时间。如果发生错误，则返回 -1 值。
+
+16.4非本地跳转
+<setjmp.h>
+int setjmp(jmp_buf state);
+void longjmp(jmp_buf state,int value);
+声明一个jmp_buf变量，并用setjmp对它初始化，返回0，同时把程序的状态信息保存到跳转缓冲区，调用setjmp的函数为顶层函数
+以后任何地方调用longjmp时，将导致这个被保存的状态被重新恢复，立即跳回到顶层函数中，此时setjmp返回lomgjmp的第二个参数
+
+16.5信号
+<signal.h>
+int raise(int sig);引发它的参数指定的信号
+void (*signal(int sig,void(*handler)(int)))(int);
+handler为希望为sig设置的信号处理函数，这个处理函数是一个函数指针。signal返回一个指向该信号以前的处理函数的指针。
+
+16.6打印可变参数列表
+vprintf
+vfprintf
+vsprintf
+
+16.7执行环境
+终止执行<stdlib.h>
+void abort(void);不正常的终止
+void atexit(void(func)(void));把一些函数注册为退出函数
+void exit(int status);正常终止
+
+断言<assert.h>
+void assert (int expression);
+若表达式参数为0，则向标准错误打印诊断信息并终止程序
+
+环境<stdlib.h>
+char *getenv(char const*name);
+在列表中查找一个特定的名字，如果找到则返回一个指向其对应值的指针
+
+执行系统命令<stdlib.h>
+void system(char const*command);
+把字符串参数传递给操作系统，由处理器执行
+
+排序和查找<stdlib.h>
+void qsort(void *base,size_t n_elements,size_t el_size,int (*compare)(void const*,void const*));
+第一个参数指向需要排序的数组，第二个参数指定数组中元素数目，第三个参数指定每个元素的长度（字符），第四个参数是函数指针，用于比较元素类型。
+比较函数接收两个参数，指向两个需要进行比较的值，返回一个整数，是否大于0表示第一个值是否大于第二个值
+void *bsearch(void const *key,void const *base,size_t n_elements,size_t el_size,int (*compare)(void const*,void const*));
+第一个参数是查找的值
+
+16.8 <locale.h>
