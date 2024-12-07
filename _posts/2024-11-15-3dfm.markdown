@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Continuous 3D Perception Model with Persistent State"
+venue: "submitted to CVPR"
 date:   2024-11-15 23:59:59 +00:00
 image: /images/3dgaussian.jpg
 categories: research
