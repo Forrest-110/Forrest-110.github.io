@@ -1,13 +1,12 @@
 ---
 layout: post
 title:  "Continuous 3D Perception Model with Persistent State"
-venue: "submitted to CVPR"
 date:   2024-11-15 23:59:59 +00:00
 image: /images/3dgaussian.jpg
 categories: research
 author: "Yifei Zhang"
 authors: "Qianqian Wang*, <strong>Yifei Zhang*</strong>, Aleksander Holynski, Alexei A Efros, and Angjoo Kanazawa"
-venue: #"arXiv"
+venue: "submitted to CVPR"
 arxiv: #https://arxiv.org/abs/2308.14737
 code: #https://github.com/leonidk/fmb-plus
 website: #https://leonidk.github.io/fmb-plus
