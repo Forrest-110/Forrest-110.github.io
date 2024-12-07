@@ -11,7 +11,4 @@ arxiv: #https://arxiv.org/abs/2308.14737
 code: #https://github.com/leonidk/fmb-plus
 website: #https://leonidk.github.io/fmb-plus
 ---
-We introduce a new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry and camera pose for the current view. It naturally accepts varying numbers of images and works with both video sequences and sparse photo collections.
-Furthermore, it can handle dynamic scenes. Most importantly, the internal state serves as a structural representation of the world.
-Beyond capturing observed content, it encodes generalized 3D scene priors, enabling the model to infer unseen portions of the
-scene. Additionally, the state can refine itself by revisiting past observations, demonstrating potential spatial reasoning ability.
+A new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry & camera pose for the current view, and infer unseen portions of the scene.
