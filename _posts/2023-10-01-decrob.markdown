@@ -1,14 +1,16 @@
 ---
 layout: post
-title:  "Continuous 3D Perception Model with Persistent State"
-date:   2024-11-15 23:59:59 +00:00
-image: /images/3dfm.png
+title:  "Dual-frame Fluid Motion Estimation with Test-time Optimization and Zero-divergence Loss"
+date:   2023-10-01 23:59:59 +00:00
+image: /images/decrob.png
 categories: research
 author: "Yifei Zhang"
-authors: "Qianqian Wang*, <strong>Yifei Zhang*</strong>, Aleksander Holynski, Alexei A Efros, and Angjoo Kanazawa"
-venue: "submitted to <strong>CVPR</strong>"
-arxiv: #https://arxiv.org/abs/2308.14737
-code: #https://github.com/leonidk/fmb-plus
+authors: "<strong>Yifei Zhang</strong>, Huan-ang Gao, Zhou Jiang, and Hao Zhao"
+venue: "<strong>NeurIPS 2024</strong>"
+arxiv: https://arxiv.org/pdf/2410.11934
+code: https://github.com/Forrest-110/FluidMotionNet
 website: #https://leonidk.github.io/fmb-plus
 ---
-A new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry & camera pose for the current view, as well as infer unseen portions of the scene.
+A new fluid motion tracking method that is completely self-supervised
+and notably outperforms its supervised counterparts while requiring only 1%
+of the training samples (without labels) used by previous methods.
