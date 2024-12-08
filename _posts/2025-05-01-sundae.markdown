@@ -6,7 +6,7 @@ image: /images/sundae.png
 categories: research
 author: "Yifei Zhang"
 authors: "Runyi Yang, Zhenxin Zhu, Zhou Jiang, Baijun Ye, Xiaoxue Chen, <strong>Yifei Zhang</strong>, Yuantao Chen, Jian Zhao, and Hao Zhao"
-venue: arxiv
+venue: Arxiv Preprint
 arxiv: https://arxiv.org/pdf/2405.00676
 code: https://github.com/RunyiYang/SUNDAE
 website: https://runyiyang.github.io/projects/SUNDAE/
