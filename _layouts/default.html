@@ -76,7 +76,8 @@
               {{post.authors}}
 
               <br>
-              
+              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
+              <br>
               {% if post.arxiv %}
               <a href="{{post.arxiv}}">arxiv</a> /
               {% endif %}
@@ -98,8 +99,6 @@
               {% if post.youtube %}
               <a href="{{post.youtube}}">youtube</a> /
               {% endif %}
-              <br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
               <p></p>
               {{ post.excerpt }}
             </td>
