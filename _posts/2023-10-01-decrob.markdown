@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Continuous 3D Perception Model with Persistent State"
+date:   2024-11-15 23:59:59 +00:00
+image: /images/3dfm.png
+categories: research
+author: "Yifei Zhang"
+authors: "Qianqian Wang*, <strong>Yifei Zhang*</strong>, Aleksander Holynski, Alexei A Efros, and Angjoo Kanazawa"
+venue: "submitted to <strong>CVPR</strong>"
+arxiv: #https://arxiv.org/abs/2308.14737
+code: #https://github.com/leonidk/fmb-plus
+website: #https://leonidk.github.io/fmb-plus
+---
+A new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry & camera pose for the current view, as well as infer unseen portions of the scene.

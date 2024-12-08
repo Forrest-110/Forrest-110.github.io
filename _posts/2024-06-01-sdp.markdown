@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Sparse Diffusion Policy: A Sparse, Reusable, and Flexible Policy for Robot Learning"
+date:   2024-06-01 23:59:59 +00:00
+image: /images/sdp.gif
+categories: research
+author: "Yifei Zhang"
+authors: "Yixiao Wang*, <strong>Yifei Zhang*</strong>, Mingxiao Huo*, Ran Tian, Xiang Zhang, Yichen Xie, Chenfeng Xu, Pengliang Ji, Wei Zhan, Mingyu Ding, and Masayoshi Tomizuka"
+venue: "<strong>CoRL</strong> 2024"
+arxiv: https://arxiv.org/pdf/2407.01531
+code: https://github.com/AnthonyHuo/SDP
+website: https://forrest-110.github.io/sparse_diffusion_policy/
+---
+We propose a Sparse Diffusion Policy (SDP) that integrates a Mixture of Experts module specifically designed for multitask learning, continual learning and rapid adaptation to new tasks
