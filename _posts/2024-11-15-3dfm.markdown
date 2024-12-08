@@ -11,4 +11,4 @@ arxiv: #https://arxiv.org/abs/2308.14737
 code: #https://github.com/leonidk/fmb-plus
 website: #https://leonidk.github.io/fmb-plus
 ---
-A new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry & camera pose for the current view, and infer unseen portions of the scene.
+A new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry & camera pose for the current view, as well as infer unseen portions of the scene.
