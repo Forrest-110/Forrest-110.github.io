@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "iFLYTEK 10.24 Industrial Big Model Launch Event"
+date:   2023-10-24 22:21:59 +00:00
+image: /images/iflytech.png
+categories: industry
+author: "Yifei Zhang"
+subtitle: "Robot Arm Hardware Management"
+patent: #https://patents.google.com/patent/US9661298B2
+---
+Led debugging and optimization of robotic arm hardware drivers for the iFLYTEK 10.24 launch, contributing to a successful product demonstration.

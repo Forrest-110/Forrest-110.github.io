@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "AIR Industrial Showroom Setup"
+date:   2023-12-01 22:21:59 +00:00
+image: /images/air.png
+categories: industry
+author: "Yifei Zhang"
+subtitle: "Industrial Showroom Setup"
+patent: #https://patents.google.com/patent/US9661298B2
+---
+In charge of display systems for Tsinghua University’s showroom, enabling remote control of autonomous vehicles, resulting in improvement in system efficiency through advanced Unity and ROS communications.
