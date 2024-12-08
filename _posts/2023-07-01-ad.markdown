@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "iFLYTEK 10.24 Industrial Big Model Launch Event"
-date:   2023-10-24 22:21:59 +00:00
-image: /images/iflytech.png
+title:  "Autonomous Driving Mini-car"
+date:   2023-08-01 22:21:59 +00:00
+image: /images/ad.gif
 categories: industry
 author: "Yifei Zhang"
-subtitle: "Robot Arm Hardware Management"
+subtitle: "Autonomous Driving"
 patent: #https://patents.google.com/patent/US9661298B2
 ---
-Led debugging and optimization of robotic arm hardware drivers for the iFLYTEK 10.24 launch, contributing to a successful product demonstration.
+Constructed an autonomous robot capable of complex environment navigation. Led the development and implementation of sophisticated mapping and navigation algorithms.
