@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E00L9PT3V9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-E00L9PT3V9');
@@ -17,30 +17,42 @@
 
   <meta name="author" content="{{ site.name }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
 
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <table
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tr style="padding:0px">
       <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr style="padding:0px">
             <td style="padding:2.5%;width:60%;vertical-align:middle">
               <h1>
                 Yifei Zhang | 张逸飞
               </h1>
               </p>
-              <p>I am an undergraduate student studying Artificial Intelligence at <a href="https://www.ucas.ac.cn/">University of Chinese Academy of Sciences (UCAS)</a>. I am currently a visiting research scholar at <a href="https://bair.berkeley.edu/">BAIR, UC Berkeley</a>, working with Dr. <a href="https://qianqianwang68.github.io/">Qianqian Wang</a> under the guidance of Prof. <a href="https://people.eecs.berkeley.edu/~kanazawa/">Angjoo Kanazawa</a>. I also work closely with Prof. <a href="https://people.eecs.berkeley.edu/~efros/">Alexei (Alyosha) Efros</a> and Prof. <a href="https://me.berkeley.edu/people/masayoshi-tomizuka/">Masayoshi Tomizuka</a>. My previous experience includes an internship at <a href="https://air.tsinghua.edu.cn/">Institute for AI Industry Research (AIR), Tsinghua University</a>, where I was advised by Prof. <a href="https://sites.google.com/view/fromandto">Hao Zhao</a>.
+              <p>I am an undergraduate student studying Artificial Intelligence at <a
+                  href="https://www.ucas.ac.cn/">University of Chinese Academy of Sciences (UCAS)</a>. I am currently a
+                visiting research scholar at <a href="https://bair.berkeley.edu/">BAIR, UC Berkeley</a>, working with
+                Dr. <a href="https://qianqianwang68.github.io/">Qianqian Wang</a> under the guidance of Prof. <a
+                  href="https://people.eecs.berkeley.edu/~kanazawa/">Angjoo Kanazawa</a> and Prof.
+                  <a href="https://people.eecs.berkeley.edu/~efros/">Alexei (Alyosha) Efros</a>. I also work closely with Prof. <a
+                  href="https://me.berkeley.edu/people/masayoshi-tomizuka/">Masayoshi Tomizuka</a>. My previous
+                experience includes an internship at <a href="https://air.tsinghua.edu.cn/">Institute for AI Industry
+                  Research (AIR), Tsinghua University</a>, where I was advised by Prof. <a
+                  href="https://sites.google.com/view/fromandto">Hao Zhao</a>.
               <p style="text-align:center">
                 <a href="mailto:zhangyifei21a@gmail.com">Email</a> &nbsp;/&nbsp;
                 <a href="pdfs/resume.pdf">CV</a> &nbsp;/&nbsp;
                 <a href="https://scholar.google.com/citations?user=a39XymgAAAAJ">Scholar</a> &nbsp;/&nbsp;
-                <a href="https://github.com/Forrest-110/">Github</a> 
+                <a href="https://github.com/Forrest-110/">Github</a>
                 <!-- <a href="images/wechat-qr.jpg">WeChat</a> -->
               </p>
             </td>
@@ -50,18 +62,24 @@
           </tr>
         </table>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Research</h2>
               <p>
-                My research interest is <strong>3D/4D Computer Vision and its application in Robotics</strong>. Specifically, I would love to explore building 3D perception models from vast amounts of unlabeled data, with a structural understanding
-                of the world to support spatial and temporal structural reasoning abilities. Ultimately, my goal is to <strong>create intelligent agents with human-like perception abilities</strong>. Selected works are listed below (*equal contribution).
+                My research interest is <strong>3D/4D Computer Vision and its application in Robotics</strong>.
+                Specifically, I would love to explore building 3D perception models from vast amounts of unlabeled data,
+                with a structural understanding
+                of the world to support spatial and temporal structural reasoning abilities. Ultimately, my goal is to
+                <strong>create intelligent agents with human-like perception abilities</strong>. Selected works are
+                listed below (*equal contribution).
               </p>
             </td>
           </tr>
         </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
 
           {% for post in site.posts %}
           {% for cat in post.categories %}
@@ -108,7 +126,8 @@
           {% endfor %}
         </table>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Industrial Projects</h2>
@@ -118,7 +137,8 @@
             </td>
           </tr>
         </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
 
           {% for post in site.posts %}
           {% for cat in post.categories %}
@@ -174,27 +194,34 @@
           {% endfor %}
         </table>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:2.5%;width:100%;vertical-align:middle">
               <h2>Selected Honors and Awards</h2>
             </td>
           </tr>
         </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <ul style="padding-left: 40px;">
-            <li style="margin-bottom: 10px;">2024: <strong>SenseTime Scholarship (Only 25 winners nationwide)</strong></li>
-            <li style="margin-bottom: 10px;">2023-2024: <strong>China National Scholarship (Top 0.01%, Highest Honor for undergraduates in China)</strong></li>
-            <li style="margin-bottom: 10px;">2022-2024: First-Level Scholarship of UCAS <strong>(Top 1% in UCAS)</strong></li>
-            <li style="margin-bottom: 10px;">2023: Honorable Mention in Mathematical Contest in Modeling <strong>(Top 10% around the world)</strong></li>
+            <li style="margin-bottom: 10px;">2024: <strong>SenseTime Scholarship (Only 25 winners nationwide)</strong>
+            </li>
+            <li style="margin-bottom: 10px;">2023-2024: <strong>China National Scholarship (Top 0.01%, Highest Honor for
+                undergraduates in China)</strong></li>
+            <li style="margin-bottom: 10px;">2022-2024: First-Level Scholarship of UCAS <strong>(Top 1% in
+                UCAS)</strong></li>
+            <li style="margin-bottom: 10px;">2023: Honorable Mention in Mathematical Contest in Modeling <strong>(Top
+                10% around the world)</strong></li>
             <li style="margin-bottom: 10px;">2023: 3V3 National Second Prize in RoboMaster University League</li>
             <li style="margin-bottom: 10px;">2023: National First Prize in APMCM <strong>(Top 5% in China)</strong></li>
           </ul>
         </table>
 
-     
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+
+        <table
+          style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tr>
             <td style="padding:0px">
               <br>
@@ -210,4 +237,3 @@
 </body>
 
 </html>
-
