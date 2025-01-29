@@ -7,8 +7,8 @@ categories: research
 author: "Yifei Zhang"
 authors: "Qianqian Wang*, <strong>Yifei Zhang*</strong>, Aleksander Holynski, Alexei A Efros, and Angjoo Kanazawa"
 venue: "In submission" #"submitted to <strong>CVPR 2025</strong>"
-arxiv: #https://arxiv.org/abs/2308.14737
-code: #https://github.com/leonidk/fmb-plus
-website: #https://leonidk.github.io/fmb-plus
+arxiv: http://arxiv.org/abs/2501.12387
+code: https://github.com/CUT3R/CUT3R
+website: https://cut3r.github.io/
 ---
 A new framework for reasoning about the 3D world in an online, sequential manner. Given an input image stream, our method simultaneously updates an inner state with the current observation and reads from it to make predictions of 3D geometry & camera pose for the current view, as well as infer unseen portions of the scene.
